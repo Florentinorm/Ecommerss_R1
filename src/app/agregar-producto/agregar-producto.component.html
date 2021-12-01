@@ -1,0 +1,25 @@
+<mat-card>
+  <h1>Agregar nuevo producto</h1>
+  <p>
+    <mat-card appearance="fill">
+      <input matInput [(ngModel)]="productoModel.nombre" type="text" placeholder="Nombre">
+    </mat-card>
+  </p>
+  <p>
+    <mat-card>
+      <textarea rows="10" matInput [(ngModel)]="productoModel.descripcion" placeholder="Descripción"></textarea>
+    </mat-card>
+  </p>
+  <p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="productoModel.precio" type="number" placeholder="Precio">
+    </mat-form-field>
+  </p>
+  <label for="fotos">Fotos</label>
+  <br>
+  <input accept="image/png,image/jpeg" #foto required id="fotos" multiple type="file">
+  <p style="float: right;">
+    <app-loading-button [cargando]="cargando" texto="Guardar" (click)="guardar()"></app-loading-button>
+    <a routerLink="/productos" mat-raised-button color="primary" style="margin-left: 10px">Volver</a>
+  </p>
+</mat-card>
